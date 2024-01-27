@@ -6,10 +6,11 @@ import { User } from "../models/user.models.js";
 const userRegistation = asyncHandler(async (req, res) => {
 
     const { name, email, password } = req.body
-    // validation here
-    if ([name, email, password].some((field) => field?.trim() === "")) {
-        throw new ApiError(400, "All field are required")
-    }
+
+    console.log("function is working till here")
+    // if ([name, email, password].some((field) => field?.trim() === "")) {
+    //     throw new ApiError(400, "All field are required")
+    // }
 
     const existedUser = await User.findOne({ email })
     // email checking 

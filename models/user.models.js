@@ -6,20 +6,21 @@ import bcrypt from "bcrypt";
 const userSchema = new mongoos.Schema({
     name: {
         type: String,
-        required: true
+        required: [true, "name is required"]
     },
     lastname: {
         type: String
     },
     email: {
         type: String,
-        required: true,
+        required: [true, "name is required"],
         unique: true,
         validator: validator.isEmail
     },
     password: {
         type: String,
-        required: true
+        required: [true, "name is required"],
+        minlength: [6, "provide minmum 6 length"]
     },
     location: {
         type: String,
